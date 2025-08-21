@@ -6,6 +6,7 @@
 
 #include "core/events/event_manager.h"
 #include "core/rendering/fonts/NotoSans.hpp"
+#include "core/rendering/fonts/HYWenHei.hpp"
 #include "ui/gui.h"
 #include "utils/dx_utils.h"
 
@@ -253,13 +254,16 @@ bool DX11Backend::initializeImGui()
     ImFontConfig fontConfig;
     fontConfig.FontDataOwnedByAtlas = false;
 
+    //io.FontDefault = io.Fonts->AddFontFromMemoryCompressedTTF(
+    //    NotoSans_compressed_data,
+    //    *NotoSans_compressed_data,
+    //    15.0f,
+    //    &fontConfig,
+    //    io.Fonts->GetGlyphRangesDefault()
+    //    );
     io.FontDefault = io.Fonts->AddFontFromMemoryCompressedTTF(
-        NotoSans_compressed_data,
-        *NotoSans_compressed_data,
-        15.0f,
-        &fontConfig,
-        io.Fonts->GetGlyphRangesDefault()
-        );
+        HYWenHei_compressed_data, *HYWenHei_compressed_data,
+                                                              15.0f, &fontConfig, io.Fonts->GetGlyphRangesChineseFull());
 
     // Setup style
     ImGui::StyleColorsDark();

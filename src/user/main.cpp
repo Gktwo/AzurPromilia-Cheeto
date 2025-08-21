@@ -1,4 +1,4 @@
-﻿#include "pch.h"
+#include "pch.h"
 #include "main.h"
 
 #include "core/rendering/renderer.h"
@@ -8,7 +8,7 @@ void Main::run()
 {
     LOG_INFO("Starting initialization...");
     Sleep(1000);
-
+    MessageBoxA(NULL, "start search unity", "info", MB_OK | MB_ICONINFORMATION);
     if (!initializeUnity())
         LOG_ERROR("Unable to initialize Unity! Maybe assemblies are not found?");
 

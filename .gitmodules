@@ -1,15 +1,15 @@
 [submodule "vendor/UnityResolve"]
 	path = vendor/UnityResolve
-	url = https://github.com/issuimo/UnityResolve.hpp
+	url = https://bgithub.xyz/issuimo/UnityResolve.hpp
 [submodule "vendor/imgui"]
 	path = vendor/imgui
-	url = https://github.com/ocornut/imgui
+	url = https://bgithub.xyz/ocornut/imgui
 [submodule "vendor/magic_enum"]
 	path = vendor/magic_enum
-	url = https://github.com/Neargye/magic_enum
+	url = https://bgithub.xyz/Neargye/magic_enum
 [submodule "vendor/nano-signal-slot"]
 	path = vendor/nano-signal-slot
-	url = https://github.com/NoAvailableAlias/nano-signal-slot
+	url = https://bgithub.xyz/NoAvailableAlias/nano-signal-slot
 [submodule "vendor/json"]
 	path = vendor/json
-	url = https://github.com/nlohmann/json
+	url = https://bgithub.xyz/nlohmann/json

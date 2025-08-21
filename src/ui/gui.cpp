@@ -233,7 +233,7 @@ void GUI::renderMainMenuBar()
 
 void GUI::renderExampleWindow()
 {
-    ImGui::Begin("Blue Archive Cheat - Taiga74164", nullptr, ImGuiWindowFlags_None);
+    ImGui::Begin("蓝色原神", nullptr, ImGuiWindowFlags_None);
 
     cheat::FeatureManager::getInstance().draw();
 

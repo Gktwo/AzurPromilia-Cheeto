@@ -20,6 +20,7 @@ bool Renderer::initialize()
 
     // Auto-detect render API
     RenderAPI detectedAPI = utils::DXUtils::getRenderAPI();
+    
     if (detectedAPI == RenderAPI::Unknown)
     {
         LOG_ERROR("Unable to detect rendering API");

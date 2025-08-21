@@ -2,21 +2,9 @@
 #include "cheat.h"
 
 #include "feature_manager.h"
+#include "features/game/esp.h"
 
-#include "features/debug/Debug.h"
 
-#include "features/player/NoCost.h"
-#include "features/player/GodMode.h"
-#include "features/player/PlayerStats.h"
-
-#include "features/combat/DumbEnemies.h"
-#include "features/combat/OneHitKill.h"
-
-#include "features/game/InstantWin.h"
-#include "features/game/SkipBattleSummary.h"
-#include "features/game/Timescale.h"
-
-#include "features/hooks/BattleEntityHook.h"
 
 void cheat::init()
 {
@@ -28,23 +16,13 @@ void cheat::init()
         // features::Debug,
 
         // Cheat features
-        features::NoCost,
-        features::GodMode,
-        features::PlayerStats,
-        features::DumbEnemies,
-        features::OneHitKill,
-        features::InstantWin,
-        features::SkipBattleSummary,
-        features::Timescale,
-
-        // Hooks
-        features::BattleEntityHook
+        features::ESP
     >();
 
     const auto fullVersion = Application::get_version()()->ToString();
     const size_t dotPos = fullVersion.rfind('.');
     const auto version = fullVersion.substr(dotPos + 1);
-    LOG_INFO("Blue Archive version: {}", version.c_str());
+    LOG_INFO("AzurPromilia version: {}", version.c_str());
 
     manager.init();
 }

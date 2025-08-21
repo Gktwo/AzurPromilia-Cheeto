@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\appdata\enums.h" />
+    <ClInclude Include="src\appdata\helpers.h" />
+    <ClInclude Include="src\appdata\cs-types.h" />
+    <ClInclude Include="src\appdata\types-helper.h" />
+    <ClInclude Include="src\appdata\types.h" />
+    <ClInclude Include="src\core\config\config_manager.h" />
+    <ClInclude Include="src\core\config\config_object.h" />
+    <ClInclude Include="src\core\config\fields\field.h" />
+    <ClInclude Include="src\core\config\fields\field_base.h" />
+    <ClInclude Include="src\core\config\fields\field_registry.h" />
+    <ClInclude Include="src\core\config\fields\hotkey_field.h" />
+    <ClInclude Include="src\core\events\event.h" />
+    <ClInclude Include="src\core\events\event_manager.h" />
+    <ClInclude Include="src\core\hotkey\hotkey_manager.h" />
+    <ClInclude Include="src\core\pipe\pipe_manager.h" />
+    <ClInclude Include="src\core\rendering\backend\dx11_backend.h" />
+    <ClInclude Include="src\core\rendering\backend\renderer_backend.h" />
+    <ClInclude Include="src\core\rendering\fonts\HYWenHei.hpp" />
+    <ClInclude Include="src\core\rendering\fonts\NotoSans.hpp" />
+    <ClInclude Include="src\core\rendering\renderer.h" />
+    <ClInclude Include="src\core\serializable.h" />
+    <ClInclude Include="src\framework.h" />
+    <ClInclude Include="src\memory\hook_manager.h" />
+    <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\ui\gui.h" />
+    <ClInclude Include="src\user\cheat\cheat.h" />
+    <ClInclude Include="src\user\cheat\features\game\esp.h" />
+    <ClInclude Include="src\user\cheat\feature_base.h" />
+    <ClInclude Include="src\user\cheat\feature_manager.h" />
+    <ClInclude Include="src\user\Entity\Entity.h" />
+    <ClInclude Include="src\user\main.h" />
+    <ClInclude Include="src\utils\dx_utils.h" />
+    <ClInclude Include="src\utils\logger.h" />
+    <ClInclude Include="src\utils\singleton.h" />
+    <ClInclude Include="vendor\imgui\backends\imgui_impl_dx11.h" />
+    <ClInclude Include="vendor\imgui\backends\imgui_impl_dx12.h" />
+    <ClInclude Include="vendor\imgui\backends\imgui_impl_dx9.h" />
+    <ClInclude Include="vendor\imgui\backends\imgui_impl_win32.h" />
+    <ClInclude Include="vendor\imgui\imconfig.h" />
+    <ClInclude Include="vendor\imgui\imgui.h" />
+    <ClInclude Include="vendor\imgui\imgui_internal.h" />
+    <ClInclude Include="vendor\imgui\imstb_rectpack.h" />
+    <ClInclude Include="vendor\imgui\imstb_textedit.h" />
+    <ClInclude Include="vendor\imgui\imstb_truetype.h" />
+    <ClInclude Include="vendor\imgui\misc\cpp\imgui_stdlib.h" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_all.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_containers.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_flags.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_format.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_fuse.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_iostream.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_switch.hpp" />
+    <ClInclude Include="vendor\magic_enum\include\magic_enum\magic_enum_utility.hpp" />
+    <ClInclude Include="vendor\minhook\include\MinHook.h" />
+    <ClInclude Include="vendor\nano-signal-slot\nano_function.hpp" />
+    <ClInclude Include="vendor\nano-signal-slot\nano_mutex.hpp" />
+    <ClInclude Include="vendor\nano-signal-slot\nano_observer.hpp" />
+    <ClInclude Include="vendor\nano-signal-slot\nano_signal_slot.hpp" />
+    <ClInclude Include="vendor\UnityResolve\UnityResolve.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\core\config\config_manager.cpp" />
+    <ClCompile Include="src\core\events\event_manager.cpp" />
+    <ClCompile Include="src\core\hotkey\hotkey_manager.cpp" />
+    <ClCompile Include="src\core\pipe\pipe_manager.cpp" />
+    <ClCompile Include="src\core\rendering\backend\dx11_backend.cpp" />
+    <ClCompile Include="src\core\rendering\renderer.cpp" />
+    <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="src\memory\hook_manager.cpp" />
+    <ClCompile Include="src\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\ui\gui.cpp" />
+    <ClCompile Include="src\user\cheat\cheat.cpp" />
+    <ClCompile Include="src\user\cheat\features\game\esp.cpp" />
+    <ClCompile Include="src\user\cheat\feature_manager.cpp" />
+    <ClCompile Include="src\user\Entity\Entity.cpp" />
+    <ClCompile Include="src\user\main.cpp" />
+    <ClCompile Include="src\utils\dx_utils.cpp" />
+    <ClCompile Include="src\utils\logger.cpp" />
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_dx11.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_dx12.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_dx9.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_win32.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui_draw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui_tables.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui_widgets.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\misc\cpp\imgui_stdlib.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\appdata\helpers.h" />
+    <Content Include="src\core\config\fields\hotkey_field.h" />
+    <Content Include="src\user\cheat\feature_base.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\core\rendering\fonts\" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{7860a162-9346-4360-95f8-9487aee28e2c}</ProjectGuid>
+    <RootNamespace>AP_Cheeto</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>AP_Cheeto</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\obj\</IntDir>
+    <TargetName>Cunny</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\obj\</IntDir>
+    <TargetName>netbios</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_WINDOWS;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;CUNNY_EXPORTS;_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\UnityResolve;$(ProjectDir)vendor\imgui;$(ProjectDir)vendor\imgui\misc;$(ProjectDir)vendor\imgui\backends;$(ProjectDir)vendor\minhook\include;$(ProjectDir)vendor\magic_enum\include\magic_enum;$(ProjectDir)vendor\nano-signal-slot;$(ProjectDir)vendor\json\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>libMinHook.x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)vendor\minhook\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_WINDOWS;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;CUNNY_EXPORTS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\UnityResolve;$(ProjectDir)vendor\imgui;$(ProjectDir)vendor\imgui\misc;$(ProjectDir)vendor\imgui\backends;$(ProjectDir)vendor\minhook\include;$(ProjectDir)vendor\magic_enum\include\magic_enum;$(ProjectDir)vendor\nano-signal-slot;$(ProjectDir)vendor\json\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>libMinHook.x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)vendor\minhook\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>LIBCMT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
