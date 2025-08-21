@@ -18,7 +18,7 @@ public:
     int GetConfigId() const;
     EEntityType_Enum GetEntityType() const;
     UTYPE::String* GetConfigName() const;
-    UTYPE::String* GetClass_Name() const;
+    //UTYPE::String* GetClass_Name() const;
 
     // 位置相关
     UTYPE::Vector3* GetPosition() const;

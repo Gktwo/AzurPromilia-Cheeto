@@ -14,6 +14,7 @@ class AzurPlay;
 class BaseData;
 class Entity;
 class EntityManager;
+class Camera;
 
 ///////////////////////////////
 /// Class Definitions
@@ -34,9 +35,9 @@ class AzurPlay
 };
 class BaseData
 {
-    UNITY_CLASS_DECL("Assembly-CSharp.dll", "BaseData")
+    UNITY_CLASS_DECL("Assembly-CSharp.dll", "Lens.Gameplay.Modules.BigWorld.BaseData")
 
-    UNITY_FIELD(UTYPE::String*, className, 0x10)
+    
 
     UNITY_FIELD(int, battleId, 0x110)
     UNITY_FIELD(int, entityId, 0x118)
@@ -55,7 +56,8 @@ class BaseData
 class Entity
 {
     UNITY_CLASS_DECL("Assembly-CSharp.dll", "Entity")
-    UNITY_FIELD(BaseData*, data, 0x10)
+    UNITY_FIELD(BaseData*, basedata, 0x10)
+    UNITY_METHOD(UTYPE::String*, get_className, Entity*)
 
 
     //UNITY_METHOD(UTYPE::String*, className)
@@ -66,4 +68,17 @@ class EntityManager
     UNITY_CLASS_DECL("Assembly-CSharp.dll", "EntityManager")
 
     UNITY_METHOD(UTYPE::List<Entity>*, GetAllEntities)
+    
+};
+
+class Camera
+{
+    UNITY_CLASS_DECL("UnityEngine.CoreModule.dll", "Camera")
+    UNITY_METHOD(UTYPE::Vector3*, WorldToScreenPoint, Camera*, UTYPE::Vector3*)
+    UNITY_METHOD(UTYPE::Vector3*, ScreenToWorldPoint, Camera*, UTYPE::Vector3*)
+    UNITY_METHOD(UTYPE::Vector3*, WorldToViewportPoint, Camera*, UTYPE::Vector3*)
+    UNITY_METHOD(UTYPE::Vector3*, ViewportToWorldPoint, Camera*, UTYPE::Vector3*)
+    UNITY_METHOD(void, CopyFrom, Camera*, Camera*)
+    UNITY_METHOD(Camera*, get_main)
+    UNITY_METHOD(Camera*, get_current)
 };

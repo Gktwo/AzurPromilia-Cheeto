@@ -4,9 +4,9 @@
 EntityWrapper::EntityWrapper(Entity* entity)
     : m_entity(entity), m_baseData(nullptr)
 {
-    if (m_entity && m_entity->data())
+    if (m_entity && m_entity->basedata())
     {
-        m_baseData = m_entity->data();
+        m_baseData = m_entity->basedata();
     }
 }
 
@@ -39,11 +39,11 @@ UTYPE::String* EntityWrapper::GetConfigName() const
     return m_baseData->configName();
 }
 
-UTYPE::String* EntityWrapper::GetClass_Name() const
-{
-    if (!IsValid()) return nullptr;
-    return m_baseData->className();
-}
+//UTYPE::String* EntityWrapper::GetClass_Name() const
+//{
+//    if (!IsValid()) return nullptr;
+//    return m_baseData->className();
+//}
 
 UTYPE::Vector3* EntityWrapper::GetPosition() const
 {
