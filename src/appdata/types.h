@@ -15,6 +15,8 @@ class BaseData;
 class Entity;
 class EntityManager;
 class Camera;
+class Screen;
+class RenderSettings;
 
 ///////////////////////////////
 /// Class Definitions
@@ -82,3 +84,21 @@ class Camera
     UNITY_METHOD(Camera*, get_main)
     UNITY_METHOD(Camera*, get_current)
 };
+
+class Screen
+{
+    UNITY_CLASS_DECL("UnityEngine.CoreModule.dll", "Screen")
+    UNITY_METHOD(int, get_width)
+    UNITY_METHOD(int, get_height)
+    UNITY_METHOD(void, set_width)
+    UNITY_METHOD(void, set_height)
+    UNITY_METHOD(void, SetResolution, int, int, bool)
+}
+
+class RenderSettings
+{
+    UNITY_CLASS_DECL("UnityEngine.CoreModule.dll", "RenderSettings")
+    UNITY_METHOD(UTYPE::Color*, get_ambientLight)
+
+}
+

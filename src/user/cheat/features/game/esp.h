@@ -52,5 +52,11 @@ namespace cheat::features
         ImColor gray = ImColor(128, 128, 128); // 灰色
         
         void drawESP();
+        ImColor getColorbyType(EEntityType_Enum entity_type);
+        bool shouldshowbyType (EEntityType_Enum entity_type);
+        std::string addtext(std::string text,std::string newtext);
+
+
+
     };
 } // namespace cheat::features
