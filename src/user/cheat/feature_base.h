@@ -68,6 +68,7 @@ namespace cheat
         virtual void draw()
         {
         }
+        virtual void update() {}
 
         virtual void onEnable()
         {

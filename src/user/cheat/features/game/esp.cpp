@@ -40,8 +40,10 @@ namespace cheat::features
             
         }
     }
-
-    void ESP::drawESP() {
+    void ESP::update(){
+    
+    }
+    void drawESP() {
        // if (!s_instance->isEnabled()) return;
         
         auto*  entities = UNITY_CALL(EntityManager::GetAllEntities);
@@ -49,9 +51,12 @@ namespace cheat::features
         //}
         
         //LOG_DEBUG("ESP: Processing %d entities", entities->size);
-        printf("ESP: Processing %d entities\n", entities ? entities->size : 0);
+        
         if (!entities || entities->size == 0) 
+            printf("ESP: not found entity\n");
             return;
+        printf("ESP: found %d entities\n",entities->size);
+        LOG_DEBUG("ESP: Processing %d entities", entities->size);
         for (int i = 0; i < entities->size; i++)
         {
             try {
@@ -60,8 +65,9 @@ namespace cheat::features
                 if (!entity) continue;
                 //UTYPE::String* name = UNITY_CALL(entity->get_className, entity);
                 //printf("%s\n", name->ToString().c_str());
-                UTYPE::String* name = entity->basedata()->configName();
-                 printf("%s\n", name->ToString().c_str());
+                const char*  name =entity->basedata()->getClassName();
+                //UTYPE::String* name = entity->basedata()->configName();
+                 printf("entity[ %d ]data class name : %s\n",i, name);
                 
             } catch (const std::exception& e) {
 

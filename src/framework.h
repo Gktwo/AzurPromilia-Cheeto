@@ -27,3 +27,4 @@
 #include "ui/gui.h"
 #include "appdata/helpers.h"
 #include "appdata/types.h"
+#include "utils/error.h"

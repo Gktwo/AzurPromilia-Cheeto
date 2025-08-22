@@ -35,7 +35,7 @@ class AzurPlay
 };
 class BaseData
 {
-    UNITY_CLASS_DECL("Assembly-CSharp.dll", "Lens.Gameplay.Modules.BigWorld.BaseData")
+    UNITY_CLASS_DECL("Assembly-CSharp.dll", "BaseData")
 
     
 

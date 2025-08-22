@@ -10,6 +10,7 @@ namespace cheat::features
     public:
         ESP();
         void draw() override;
+        void update() override;
 
     private:
         CONFIG_FIELD(float, m_range, 50.0f);

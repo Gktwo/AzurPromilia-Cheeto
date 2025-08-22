@@ -4,32 +4,33 @@
 #include "feature_manager.h"
 #include "features/game/esp.h"
 
-
-
-void cheat::init()
+namespace cheat
 {
-    ConfigManager::getInstance().load();
 
-    auto& manager = FeatureManager::getInstance();
+    void init()
+    {
+        ConfigManager::getInstance().load();
 
-    manager.registerFeatures<
-        // features::Debug,
+        auto& manager = FeatureManager::getInstance();
 
-        // Cheat features
-        features::ESP
-    >();
+        manager.registerFeatures<
+            // features::Debug,
 
-    const auto fullVersion = Application::get_version()()->ToString();
-    const size_t dotPos = fullVersion.rfind('.');
-    const auto version = fullVersion.substr(dotPos + 1);
-    LOG_INFO("AzurPromilia version: {}", version.c_str());
+            // Cheat features
+            features::ESP>();
 
-    manager.init();
-}
+        const auto fullVersion = Application::get_version()()->ToString();
+        const size_t dotPos = fullVersion.rfind('.');
+        const auto version = fullVersion.substr(dotPos + 1);
+        LOG_INFO("AzurPromilia version: {}", version.c_str());
 
-void cheat::shutdown()
-{
-    auto& hookManager = HookManager::getInstance();
-    hookManager.shutdown();
-    LOG_INFO("Hooks shutdown successfully");
-}
+        manager.init();
+    }
+
+    void shutdown()
+    {
+        auto& hookManager = HookManager::getInstance();
+        hookManager.shutdown();
+        LOG_INFO("Hooks shutdown successfully");
+    }
+} // namespace cheat
