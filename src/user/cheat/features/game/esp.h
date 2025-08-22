@@ -11,6 +11,7 @@ namespace cheat::features
         ESP();
         void draw() override;
         void update() override;
+        void drawESP();
 
     private:
         CONFIG_FIELD(float, m_range, 50.0f);
@@ -51,7 +52,7 @@ namespace cheat::features
         ImColor black = ImColor(0, 0, 0); // 黑色
         ImColor gray = ImColor(128, 128, 128); // 灰色
         
-        void drawESP();
+        
         ImColor getColorbyType(EEntityType_Enum entity_type);
         bool shouldshowbyType (EEntityType_Enum entity_type);
         std::string addtext(std::string text,std::string newtext);

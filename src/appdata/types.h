@@ -93,12 +93,13 @@ class Screen
     UNITY_METHOD(void, set_width)
     UNITY_METHOD(void, set_height)
     UNITY_METHOD(void, SetResolution, int, int, bool)
-}
+};
 
 class RenderSettings
 {
     UNITY_CLASS_DECL("UnityEngine.CoreModule.dll", "RenderSettings")
-    UNITY_METHOD(UTYPE::Color*, get_ambientLight)
+    UNITY_METHOD(bool, get_fog)
+    UNITY_METHOD(void, set_fog,bool)
 
-}
+};
 

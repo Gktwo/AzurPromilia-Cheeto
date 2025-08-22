@@ -49,7 +49,8 @@ namespace cheat::features
         //         //try show a entity info
         // })
     }
-    void drawESP() {
+    void ESP::drawESP()
+    {
        // if (!s_instance->isEnabled()) return;
         
         auto*  entities = UNITY_CALL(EntityManager::GetAllEntities);
@@ -77,7 +78,7 @@ namespace cheat::features
                 const char*  name =entity->basedata()->getClassName();            
                 LOG_DEBUG("entity[ {} ]data class name : {}",i, name);
 
-                int id = entity->basedata()->getEntityID();
+                int id = entity->basedata()->entityId();
                 LOG_DEBUG("entity[ {} ]data id : {}",i, id);
 
                 //EEntityType_Enum entity_type = entity->basedata()->entityType();
@@ -90,8 +91,8 @@ namespace cheat::features
 
 
 
-                UTYPE::Vector3* entity_pos = UNITY_CALL(BaseData::GetPosition(entity->basedata()));
-                LOG_DEBUG("entity pos: {},{},{},",entity_pos.X,entity_pos.Y,entity_pos.Z);
+                //UTYPE::Vector3* entity_pos = entity->basedata()->GetPosition();
+                //LOG_DEBUG("entity pos: {},{},{},",entity_pos.X,entity_pos.Y,entity_pos.Z);
                 //UTYPE::Vector3* rect = UNITY_CALL(Camera::WorldToScreenPoint(UNITY_CALL(Camera::Camera_get_main()), entity_pos));
                 
                // if (rect.Z < 0.1f) continue;
@@ -113,13 +114,15 @@ namespace cheat::features
     ImColor ESP::getColorbyType(EEntityType_Enum entity_type){
         switch (entity_type)
         {
-        case EEntityType_Enum::Hero || EEntityType_Enum::Player||EEntityType_Enum::Pet:
-
+        case EEntityType_Enum::Hero:
+        case EEntityType_Enum::Player:
+        case EEntityType_Enum::Pet:
             return green;
             break;
         // case EEntityType_Enum::Soldier:
         //     return orange;
-        case EEntityType_Enum::Boss || EEntityType_Enum::Monster:
+        case EEntityType_Enum::Boss:
+        case EEntityType_Enum::Monster:
             return red;
             break;
         default:
@@ -130,11 +133,13 @@ namespace cheat::features
     bool ESP::shouldshowbyType (EEntityType_Enum entity_type){ 
         switch (entity_type)
         {
-        case EEntityType_Enum::Hero || EEntityType_Enum::Player :
+        case EEntityType_Enum::Hero:
+        case EEntityType_Enum::Player:
             return showPlayer;          
             break;
 
-        case EEntityType_Enum::Boss || EEntityType_Enum::Monster:
+        case EEntityType_Enum::Boss:
+        case EEntityType_Enum::Monster:
             return showMonster;
             break;
         default:
@@ -143,8 +148,7 @@ namespace cheat::features
         }
     }
     std::string ESP::addtext(std::string text,std::string newtext){
-        if(text.empty())
-            text+= " | "
+        if (text.empty()) text += " | ";
         text+=newtext;
         return text;
     }
