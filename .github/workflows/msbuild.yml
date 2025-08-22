@@ -7,10 +7,10 @@ on:
     branches: [ "master" ]
 
 env:
-  SOLUTION_FILE_PATH: ./BA-Cheeto.sln
+  SOLUTION_FILE_PATH: ./AP_Cheeto.sln
   BUILD_CONFIGURATION: Release
   PLATFORM: x64
-  TARGET_DLL: Cunny.dll
+  TARGET_DLL: netbios.dll
 
 permissions:
   contents: read
