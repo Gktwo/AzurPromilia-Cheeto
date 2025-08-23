@@ -11,13 +11,16 @@ using UTYPE = UnityResolve::UnityType;
 ///////////////////////////////
 class Application;
 class AzurPlay;
+class AzurWorld;
 class BaseData;
 class Entity;
 class EntityManager;
 class Camera;
 class Screen;
 class RenderSettings;
-
+class AvatarManager;
+class PlayerManager;
+class TransferManager;
 ///////////////////////////////
 /// Class Definitions
 ///////////////////////////////
@@ -34,6 +37,22 @@ class AzurPlay
     UNITY_CLASS_DECL("Assembly-CSharp.dll", "AzurPlay")
     UNITY_METHOD(void, WorldUpdate, AzurPlay*,float)
 
+};
+class AzurWorld
+{
+    UNITY_CLASS_DECL("Assembly-CSharp.dll", "AzurWorld")
+
+    UNITY_FIELD(AzurWorld* ,m_Instance, 0x00)
+    UNITY_FIELD(AzurPlay*, m_Play, 0x40)
+    UNITY_METHOD(AzurWorld*, get_Instance, )
+    UNITY_METHOD(void, OnUpdate, AzurWorld*)
+    UNITY_METHOD(void, PauseWorld, AzurWorld*)
+    UNITY_METHOD(void, Exit, AzurWorld*)
+    UNITY_METHOD(void, ResumeWorld, AzurWorld*)
+    UNITY_METHOD(bool, inGame, AzurWorld*)
+    UNITY_METHOD(AvatarManager*, get_avatarMgr, )
+    UNITY_METHOD(PlayerManager*, get_playerMgr, )
+    UNITY_METHOD(TransferManager*, get_transferMgr, )
 };
 class BaseData
 {
