@@ -24,17 +24,17 @@ namespace cheat::features
     {
         if (!s_instance->isEnabled()) return;
 
-        ImGui::InputFloat("范围", &range, 1.0f, 5.0f, "%.1f");
-        ImGui::Checkbox("显示NPC", &showNpc);
-        ImGui::Checkbox("显示线", &draw_Line);
-        ImGui::Checkbox("显示框", &draw_Box);
-        ImGui::Checkbox("显示名称", &draw_Name);
-        ImGui::Checkbox("显示距离", &draw_Distance);
+        ImGui::InputFloat("Range", &range, 1.0f, 5.0f, "%.1f");
+        ImGui::Checkbox("show NPC", &showNpc);
+        ImGui::Checkbox("show line", &draw_Line);
+        ImGui::Checkbox("show box", &draw_Box);
+        ImGui::Checkbox("show name", &draw_Name);
+        ImGui::Checkbox("show distance", &draw_Distance);
         ImGui::SeparatorText("Type");
-        ImGui::Checkbox("显示怪物", &showMonster);
-        ImGui::Checkbox("显示玩家", &showPlayer);
+        ImGui::Checkbox("Monster", &showMonster);
+        ImGui::Checkbox("player", &showPlayer);
 
-        ImGui::Checkbox("显示所有", &showAll);
+        ImGui::Checkbox("showAll", &showAll);
         if (ImGui::Button("get entities"))
         {
             SAFE_EXECUTE({ drawESP(); })
@@ -56,7 +56,6 @@ namespace cheat::features
 
         //}
 
-        // LOG_DEBUG("ESP: Processing %d entities", entities->size);
 
         if (!entities || entities->size == 0)
         {
