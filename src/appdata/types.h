@@ -81,8 +81,8 @@ class Camera
     UNITY_METHOD(UTYPE::Vector3*, WorldToViewportPoint, Camera*, UTYPE::Vector3*)
     UNITY_METHOD(UTYPE::Vector3*, ViewportToWorldPoint, Camera*, UTYPE::Vector3*)
     UNITY_METHOD(void, CopyFrom, Camera*, Camera*)
-    UNITY_METHOD(Camera*, get_main)
-    UNITY_METHOD(Camera*, get_current)
+    UNITY_METHOD(Camera*, get_main,)
+    UNITY_METHOD(Camera*, get_current,)
 };
 
 class Screen

@@ -5,17 +5,18 @@
 #include "core/config/fields/hotkey_field.h"
 #include "utils/singleton.h"
 
-#define CONFIG_FIELD(TYPE, NAME, DEFAULT) config::Field<TYPE> NAME{this->getPath(), #NAME, DEFAULT}
+#define CONFIG_FIELD(TYPE, NAME, DEFAULT) \
+    config::Field<TYPE> NAME { this->getPath(), #NAME, DEFAULT }
 
-#define HOTKEY_FIELD(NAME, DEFAULT) config::HotkeyField NAME{this->getPath(), #NAME, DEFAULT}
+#define HOTKEY_FIELD(NAME, DEFAULT) \
+    config::HotkeyField NAME { this->getPath(), #NAME, DEFAULT }
 
-#define CONFIG_FIELD_VALIDATED(TYPE, name, defaultValue, validator) \
-    config::Field<TYPE> name{this->getPath(), #name, defaultValue}; \
-    struct name##_init { \
-        name##_init(Config::Field<TYPE>& field) { \
-            field.setValidator(validator); \
-        } \
-    } name##_initializer{name}
+#define CONFIG_FIELD_VALIDATED(TYPE, name, defaultValue, validator)                \
+    config::Field<TYPE> name{this->getPath(), #name, defaultValue};                \
+    struct name##_init                                                             \
+    {                                                                              \
+        name##_init(Config::Field<TYPE>& field) { field.setValidator(validator); } \
+    } name##_initializer { name }
 
 namespace cheat
 {
@@ -24,6 +25,7 @@ namespace cheat
         Player,
         Combat,
         Game,
+        Visual,
         Settings,
         Debug,
         Hooks,
@@ -42,43 +44,31 @@ namespace cheat
             , m_allowDraw(section != FeatureSection::Hooks && section != FeatureSection::Count)
             , m_enabled(this->getPath(), "enabled", false)
         {
-            m_enabledChangedConnection = m_enabled.onChanged([this](bool oldE, bool newE)
-            {
-                if (newE != oldE)
+            m_enabledChangedConnection = m_enabled.onChanged(
+                [this](bool oldE, bool newE)
                 {
-                    if (newE)
-                        onEnable();
-                    else
-                        onDisable();
-                }
-            });
+                    if (newE != oldE)
+                    {
+                        if (newE)
+                            onEnable();
+                        else
+                            onDisable();
+                    }
+                });
 
-            m_toggleKeyConnection = m_toggleKey.setHandler([this]
-            {
-                toggle();
-            });
+            m_toggleKeyConnection = m_toggleKey.setHandler([this] { toggle(); });
         }
 
         ~FeatureBase() override = default;
 
-        virtual void init()
-        {
-        }
+        virtual void init() {}
 
-        virtual void draw()
-        {
-        }
+        virtual void draw() {}
         virtual void update() {}
 
-        virtual void onEnable()
-        {
-            LOG_INFO("{} enabled", getName().c_str());
-        }
+        virtual void onEnable() { LOG_INFO("{} enabled", getName().c_str()); }
 
-        virtual void onDisable()
-        {
-            LOG_INFO("{} disabled", getName().c_str());
-        }
+        virtual void onDisable() { LOG_INFO("{} disabled", getName().c_str()); }
 
         const std::string& getName() const { return m_name; }
         const std::string& getDescription() const { return m_description; }
@@ -87,15 +77,9 @@ namespace cheat
         bool isAllowDraw() const { return m_allowDraw; }
         config::HotkeyField& getToggleKey() { return m_toggleKey; }
 
-        void setEnabled(bool v)
-        {
-            m_enabled = v;
-        }
+        void setEnabled(bool v) { m_enabled = v; }
 
-        void toggle()
-        {
-            setEnabled(!isEnabled());
-        }
+        void toggle() { setEnabled(!isEnabled()); }
 
         void setupConfig()
         {
@@ -103,15 +87,9 @@ namespace cheat
             if (m_enabled.get()) onEnable();
         }
 
-        void reloadConfig()
-        {
-            this->load();
-        }
+        void reloadConfig() { this->load(); }
 
-        void saveConfig()
-        {
-            this->save();
-        }
+        void saveConfig() { this->save(); }
 
         void resetToDefault()
         {
@@ -122,10 +100,7 @@ namespace cheat
             }
         }
 
-        const char* getSectionName() const
-        {
-            return getSectionNameForSection(m_section);
-        }
+        const char* getSectionName() const { return getSectionNameForSection(m_section); }
 
     protected:
         std::string m_name;
@@ -134,7 +109,7 @@ namespace cheat
         bool m_allowDraw;
         bool m_hasEnabledField;
 
-        CONFIG_FIELD(bool, m_enabled, false);
+        CONFIG_FIELD(bool, m_enabled_, false);
         HOTKEY_FIELD(m_toggleKey, 0);
 
     private:
@@ -146,22 +121,24 @@ namespace cheat
         {
             switch (section)
             {
-                case FeatureSection::Player:
-                    return "Player";
-                case FeatureSection::Combat:
-                    return "Combat";
-                case FeatureSection::Game:
-                    return "Game";
-                case FeatureSection::Settings:
-                    return "Settings";
-                case FeatureSection::Debug:
-                    return "Debug";
-                case FeatureSection::Hooks:
-                    return "Hooks";
-                case FeatureSection::Count:
-                default:
-                    return "Unknown";
+            case FeatureSection::Player:
+                return "Player";
+            case FeatureSection::Combat:
+                return "Combat";
+            case FeatureSection::Game:
+                return "Game";
+            case FeatureSection::Visual:
+                return "Visual";
+            case FeatureSection::Settings:
+                return "Settings";
+            case FeatureSection::Debug:
+                return "Debug";
+            case FeatureSection::Hooks:
+                return "Hooks";
+            case FeatureSection::Count:
+            default:
+                return "Unknown";
             }
         }
     };
-}
+} // namespace cheat
