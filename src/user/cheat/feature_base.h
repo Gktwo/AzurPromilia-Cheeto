@@ -109,7 +109,7 @@ namespace cheat
         bool m_allowDraw;
         bool m_hasEnabledField;
 
-        CONFIG_FIELD(bool, m_enabled_, false);
+        CONFIG_FIELD(bool, m_enabled, false);
         HOTKEY_FIELD(m_toggleKey, 0);
 
     private:
