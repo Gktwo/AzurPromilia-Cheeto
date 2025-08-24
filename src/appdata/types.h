@@ -10,14 +10,22 @@ using UTYPE = UnityResolve::UnityType;
 /// All Forward Declarations
 ///////////////////////////////
 class Application;
-class AzurPlay;
-class AzurWorld;
-class BaseData;
-class Entity;
-class EntityManager;
 class Camera;
 class Screen;
 class RenderSettings;
+
+class AntiCheatManager;
+
+class AzurPlay;
+class AzurWorld;
+
+class BaseData;
+class Entity;
+class EntityManager;
+class PlayerEntity;
+class MonsterEntity;
+
+
 class AvatarManager;
 class PlayerManager;
 class TransferManager;
@@ -88,6 +96,12 @@ class EntityManager
 {
     UNITY_CLASS_DECL("Assembly-CSharp.dll", "EntityManager")
 
+
+    UNITY_FIELD(UTYPE::List<Entity>*, m_entityList, 0x68)
+    UNITY_FIELD(UTYPE::List<PlayerEntity>*, m_players, 0xA8)
+    UNITY_FIELD(UTYPE::List<MonsterEntity>*, m_monsterList, 0x110)
+    
+    UNITY_METHOD(PlayerEntity*, get_MainPlayer)
     UNITY_METHOD(UTYPE::List<Entity>*, GetAllEntities)
     
 };
@@ -122,3 +136,12 @@ class RenderSettings
 
 };
 
+class AntiCheatManager {
+
+    UNITY_CLASS_DECL("Assembly-CSharp.dll", "AntiCheatManager")
+
+
+    UNITY_METHOD(void ,Initialize)
+    UNITY_METHOD(void, Dispose)
+    UNITY_METHOD(void, Sync)
+};
